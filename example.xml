@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Personen xmlns="http://www.example.com/namespace"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.example.com/namespace src/main/resources/xsd/schema.xsd">
+
+  <NatuerlichePerson>
+    <Vorname>Max</Vorname>
+    <Nachname>Mustermann</Nachname>
+    <Geburtsdatum>1980-01-01</Geburtsdatum>
+    <Adresse>
+      <Straße>Beispielstraße 1</Straße>
+      <Postleitzahl>12345</Postleitzahl>
+      <Stadt>Beispielstadt</Stadt>
+      <Land>Deutschland</Land>
+      <Bundesland>Beispielbundesland</Bundesland>
+    </Adresse>
+    <IDMerkmale>
+      <!-- <Steuernummer>123456789</Steuernummer>
+      <AuslaendischeSteuernummer>DE987654321</AuslaendischeSteuernummer>
+      <EUID_LEI>9876543210</EUID_LEI>
+      -->
+    </IDMerkmale>
+    <Status>Inland</Status>
+  </NatuerlichePerson>
+
+  <JuristischePerson>
+    <Firmenname>Beispiel GmbH</Firmenname>
+    <Rechtsform>GmbH</Rechtsform>
+    <Gründungsdatum>2010-05-15</Gründungsdatum>
+    <Adresse>
+      <Straße>Firmensitzstraße 2</Straße>
+      <Postleitzahl>54321</Postleitzahl>
+      <Stadt>Unternehmensstadt</Stadt>
+      <Land>Deutschland</Land>
+      <Bundesland>Beispielbundesland</Bundesland>
+    </Adresse>
+    <IDMerkmale>
+      <Steuernummer>987654321</Steuernummer>
+      <AuslaendischeSteuernummer>US123456789</AuslaendischeSteuernummer>
+      <EUID_LEI>1234567890</EUID_LEI>
+    </IDMerkmale>
+    <Status>Inland</Status>
+  </JuristischePerson>
+</Personen>
