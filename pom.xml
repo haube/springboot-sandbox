@@ -108,8 +108,34 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-oxm</artifactId>
 		</dependency>
-	</dependencies>
 
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.12.2</version>
+			<classifier>xml-schema-1.1</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.wst.xml</groupId>
+			<artifactId>xpath2</artifactId>
+			<version>1.2.1</version> <!-- oder eine neuere Version -->
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<version>4.2</version> <!-- oder eine neuere Version -->
+		</dependency>
+		<dependency>
+			<groupId>edu.princeton.cup</groupId>
+			<artifactId>java-cup</artifactId>
+			<version>10k</version> <!-- oder eine neuere Version -->
+		</dependency>
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+			<version>1.4.02</version> <!-- oder eine neuere Version -->
+		</dependency>
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>

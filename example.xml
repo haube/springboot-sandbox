@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Personen xmlns="http://www.example.com/namespace"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.example.com/namespace src/main/resources/xsd/schema.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <NatuerlichePerson>
     <Vorname>Max</Vorname>
@@ -21,9 +20,7 @@
       -->
     </IDMerkmale>
     <Status>Inland</Status>
-  </NatuerlichePerson>
-
-  <JuristischePerson>
+  </NatuerlichePerson>! <JuristischePerson>
     <Firmenname>Beispiel GmbH</Firmenname>
     <Rechtsform>GmbH</Rechtsform>
     <Gründungsdatum>2010-05-15</Gründungsdatum>

@@ -18,11 +18,11 @@ public class Validate {
   public ResponseEntity<String> validateXml(@RequestBody String xmlContent) {
     try {
       // XML-Validierung aufrufen
-      XmlValidator.validate(xmlContent);
-      return new ResponseEntity<>("XML ist gültig!", HttpStatus.OK);
+      XmlValidator_1_1.validate(xmlContent);
+      return new ResponseEntity<>("\nXML ist gültig! \n\n", HttpStatus.OK);
     } catch (SAXException | IOException e) {
       log.error("Error Validation", e);
-      return new ResponseEntity<>("XML ist ungültig: " + e.getMessage(), HttpStatus.BAD_REQUEST);
+      return new ResponseEntity<>("\nXML ist ungültig: \n \t" + e.getMessage() + " \n\n", HttpStatus.BAD_REQUEST);
     }
   }
 }
