@@ -107,7 +107,32 @@ sudo systemctl enable docker.service
 docker run --env LICENSE=accept --env MQ_QMGR_NAME=QM1 --env MQ_APP_PASSWORD=passapp --env MQ_ADMIN_PASSWORD=passadm --publish 1414:1414 --publish 9443:9443 --detach ibmcom/mq
 # Die Anwendung mit MQ Profil starten.
 mvn spring-boot:run -Dspring-boot.run.profiles=mq
-# Testen
-curl -X POST localhost:8080/employees -H 'Content-type:application/json' -d '{"name": "Samwise Gamgee", "role": "gardener"}'
-
 ```
+
+Im Browser oder Mit Curl folgenden GET Endpunkt aufrufen(RestEventController).
+http://localhost:8080/send
+
+# Rest und JPA package
+
+Das die Restendpunkte aus dem rest package kommen von folgendem Tuturial.
+https://spring.io/guides/tutorials/rest
+
+## List all DB Entries
+
+http://localhost:8080/employees
+
+## Lookup Failed
+
+localhost:8080/employees/99
+
+## Entity erstellen und speichern
+
+`curl -X POST localhost:8080/employees -H 'Content-type:application/json' -d '{"name": "Samwise Gamgee", "role": "gardener"}'`
+
+## Update einer Entity
+
+`curl -X PUT localhost:8080/employees/3 -H 'Content-type:application/json' -d '{"name": "Samwise Gamgee", "role": "ring bearer"}'`
+
+## Löschen eines Datensatzes
+
+`curl -X DELETE localhost:8080/employees/3`
