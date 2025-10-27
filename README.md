@@ -84,14 +84,14 @@ Quelle über den einleitenden Issue: https://raw.githubusercontent.com/concretec
 
 Es gibt je einen Endpunkt für den jeweilgen Validator, für 1.0 und 1.1
 Im Projekt Ordner befinden ich `example_valid.xml` und `example_invalid.xml`
-Bei der Invalid Datei fehlen die ID Merkmale bei einer Person.
+Bei der Invalid Datei fehlen die ID Merkmale bei einer Person. Bei der anderne Person fehlt das "Bundesland in der Adresse".
 
-Die Invalide XML sollte im 1.0 Validator erfolgreich durchlaufen, da hier das entsprechende Assert fehlt.
 Im Validator für 1.1 kommt es zu folgendem Fehler:
 
 ```
 XML ist ungültig:
-        cvc-assertion: Assertion evaluation ('string(ns:Steuernummer) or string(ns:AuslaendischeSteuernummer) or string(ns:EUID_LEI)') for element 'IDMerkmale' on schema type 'IDMerkmale' did not succeed.
+        [Line number: 1, Column number: 556. cvc-assertion: Assertion evaluation ('string(ns:Steuernummer) or string(ns:AuslaendischeSteuernummer) or string(ns:EUID_LEI)') for element 'IDMerkmale' on schema type 'IDMerkmale' did not succeed.,
+				Line number: 1, Column number: 924. cvc-complex-type.2.4.b: The content of element 'Adresse' is not complete. One of '{"http://www.example.com/namespace":Bundesland}' is expected.]
 ```
 
 ### Der validate10 Endpunkt prüft die XML gegen resources/xsd/schema11.xsd
