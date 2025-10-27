@@ -2,6 +2,7 @@ package net.cloudy.sytes.hello_liberty.mq;
 
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.stereotype.Component;
@@ -28,7 +29,8 @@ public class MessageSender {
   private QueueSession session;
   private QueueSender sender;
 
-  public MessageSender() throws JMSException {
+  public MessageSender(@Value("${ibm.mq.user}") String username, @Value("${ibm.mq.password}") String password)
+      throws JMSException {
     log.info("Erstelle Message Sender");
     MQQueueConnectionFactory factory = new MQQueueConnectionFactory();
     factory.setHostName("localhost");
@@ -37,7 +39,7 @@ public class MessageSender {
     factory.setChannel("DEV.APP.SVRCONN");
     factory.setTransportType(0);
     factory.setIntProperty(CommonConstants.WMQ_CONNECTION_MODE, CommonConstants.WMQ_CM_CLIENT);
-    connection = factory.createQueueConnection("app", "passapp");
+    connection = factory.createQueueConnection(username, password);
     session = connection.createQueueSession(false, Session.AUTO_ACKNOWLEDGE);
     Queue queue = session.createQueue("DEV.QUEUE.1");
     sender = session.createSender(queue);

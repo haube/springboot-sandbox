@@ -1,4 +1,15 @@
+# Sandbox
+
+Spielprojekt um Features und Arbeitsweisen zu testen.
+U.A. Das einbinden von Xerces-j für XML Schema 1.1
+Beispel wie IBMMQ in Spring Boot verwendet werden kann.
+
 # XML Schema 1.1
+
+Die Untersützung von XML Schema 1.1 hat mehere Probleme.
+
+1. Das Projekt selbst baut mit ant und published nicht nach maven central. -> Daher muss die Paketverwaltung inhouse erfolgen.
+2. Die IDE sollte das Feature unterstützen. Hier bricht zum Beipsiel der VS Code weg. Siehe unten. In der Folge werden Tags wie <xs:assert ..> immer als Fehlerhaft markiert.
 
 ## VSCode
 
@@ -18,7 +29,7 @@ Das script install_xerces.sh ausführen. Es lädt die Abhängigen Jars runter un
 
 ### install_xerces.sh asuführen oder nachspielen.
 
-`Quelle über den einleitenden Issue: https://raw.githubusercontent.com/concretecms/concrete-cif/0a35b5d08792ebca58ea7065d720d25c88d2058f/bin/install-xerces-m2.sh`
+Quelle über den einleitenden Issue: https://raw.githubusercontent.com/concretecms/concrete-cif/0a35b5d08792ebca58ea7065d720d25c88d2058f/bin/install-xerces-m2.sh
 
 ### Den Block in die pom ergänzt:
 
@@ -65,7 +76,7 @@ Das script install_xerces.sh ausführen. Es lädt die Abhängigen Jars runter un
 		</dependency>
 ```
 
-## Die Anwendung starten und testn
+## Die Anwendung starten und testen
 
 `$ mvn spring-boot:run`
 
