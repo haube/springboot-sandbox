@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.example.com/namespace"
+  xmlns="http://www.example.com/namespace"
+  elementFormDefault="qualified"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation='xsd/schema.xsd'
+  version="1.1"> <!-- Diese Zeile stellt sicher, dass Schema 1.1 verwendet wird -->
+
+  <!-- Definition von Adressen -->
+  <xs:complexType name="Adresse">
+    <xs:sequence>
+      <xs:element name="Straße" type="xs:string" />
+      <xs:element name="Postleitzahl" type="xs:string" />
+      <xs:element name="Stadt" type="xs:string" />
+      <xs:element name="Land" type="xs:string" />
+      <xs:element name="Bundesland" type="xs:string" minOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Definition von Identifikationsmerkmalen -->
+  <xs:complexType name="IDMerkmale">
+    <xs:sequence>
+      <xs:element name="Steuernummer" type="xs:string" minOccurs="0" />
+      <xs:element name="AuslaendischeSteuernummer" type="xs:string" minOccurs="0" />
+      <xs:element name="EUID_LEI" type="xs:string" minOccurs="0" />
+    </xs:sequence>
+    <!-- Der Constraint, der sicherstellt, dass mindestens ein Element vorhanden ist -->
+    <xs:assert xmlns:ns="http://www.example.com/namespace"
+      test="string(ns:Steuernummer) or string(ns:AuslaendischeSteuernummer) or string(ns:EUID_LEI)">
+      <xs:annotation>
+        <xs:documentation> Mindestens eines der Elemente Steuernummer, AuslaendischeSteuernummer oder EUID_LEI muss angegeben werden. </xs:documentation>
+      </xs:annotation>
+    </xs:assert>
+  </xs:complexType>
+
+  <!-- Komplexer Typ für natürliche Personen -->
+  <xs:complexType name="NatuerlichePerson">
+    <xs:sequence>
+      <xs:element name="Vorname" type="xs:string" />
+      <xs:element name="Nachname" type="xs:string" />
+      <xs:element name="Geburtsdatum" type="xs:date" />
+      <xs:element name="Adresse" type="Adresse" />
+      <xs:element name="IDMerkmale" type="IDMerkmale" />
+      <xs:element name="Status" type="xs:string" default="Inland">
+        <xs:annotation>
+          <xs:documentation>Unterscheidung zwischen Inland (default) und Ausland</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Komplexer Typ für juristische Personen -->
+  <xs:complexType name="JuristischePerson">
+    <xs:sequence>
+      <xs:element name="Firmenname" type="xs:string" />
+      <xs:element name="Rechtsform" type="xs:string" />
+      <xs:element name="Gründungsdatum" type="xs:date" />
+      <xs:element name="Adresse" type="Adresse" />
+      <xs:element name="IDMerkmale" type="IDMerkmale" />
+      <xs:element name="Status" type="xs:string" default="Inland">
+        <xs:annotation>
+          <xs:documentation>Unterscheidung zwischen Inland (default) und Ausland</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Definition des Wurzelelements, das entweder eine natürliche oder juristische Person enthalten
+  kann -->
+  <xs:element name="Personen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="NatuerlichePerson" type="NatuerlichePerson" minOccurs="0" />
+        <xs:element name="JuristischePerson" type="JuristischePerson" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

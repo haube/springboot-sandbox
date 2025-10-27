@@ -96,3 +96,31 @@ Die mitgelieferte Verbindung zur Factoryeigenschaft ist nicht für eine Bindungs
 AKTION:
 Entfernen Sie die Eigenschaft aus der Verbindungsfactory.
 --------------------------------------------------------------------
+Date: Mon Oct 27 13:27:30 CET 2025
+MQ Build Level=9.4.3.0(p943-L250527)
+Java version: 21.0.9(21.0.9+10)
+Process ID: 17450
+--------------------------------------------------------------------
+27. Oktober 2025, 13:27:30 MEZ[restartedMain] MQConnectionFactory
+Die Verbindungsfactoryeigenschaft „XMSC_WMQ_CHANNEL“ ist für eine Bindungsmodusverbindung zu einem Warteschlangenmanager ungültig.
+
+ERLÄUTERUNG:
+Die mitgelieferte Verbindung zur Factoryeigenschaft ist nicht für eine Bindungsmodusverbindung zu einem Warteschlangenmanager gültig.
+
+AKTION:
+Entfernen Sie die Eigenschaft aus der Verbindungsfactory.
+--------------------------------------------------------------------
+Date: Mon Oct 27 13:30:05 CET 2025
+MQ Build Level=9.4.3.0(p943-L250527)
+Java version: 21.0.9(21.0.9+10)
+Process ID: 17781
+--------------------------------------------------------------------
+27. Oktober 2025, 13:30:05 MEZ[restartedMain] MQConnectionFactory
+Die Verbindungsfactoryeigenschaft „XMSC_WMQ_CHANNEL“ ist für eine Bindungsmodusverbindung zu einem Warteschlangenmanager ungültig.
+
+ERLÄUTERUNG:
+Die mitgelieferte Verbindung zur Factoryeigenschaft ist nicht für eine Bindungsmodusverbindung zu einem Warteschlangenmanager gültig.
+
+AKTION:
+Entfernen Sie die Eigenschaft aus der Verbindungsfactory.
+--------------------------------------------------------------------

@@ -6,7 +6,7 @@
   elementFormDefault="qualified"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation='xsd/schema.xsd'
-  version="1.1"> <!-- Diese Zeile stellt sicher, dass Schema 1.1 verwendet wird -->
+  version="1.0"> <!-- Diese Zeile stellt sicher, dass Schema 1.1 verwendet wird -->
 
   <!-- Definition von Adressen -->
   <xs:complexType name="Adresse">
@@ -26,13 +26,8 @@
       <xs:element name="AuslaendischeSteuernummer" type="xs:string" minOccurs="0" />
       <xs:element name="EUID_LEI" type="xs:string" minOccurs="0" />
     </xs:sequence>
-    <!-- Der Constraint, der sicherstellt, dass mindestens ein Element vorhanden ist -->
-    <xs:assert
-      test="string(./Steuernummer) or string(./AuslaendischeSteuernummer) or string(./EUID_LEI)">
-      <xs:annotation>
-        <xs:documentation>Mindestens eines der Elemente Steuernummer, AuslaendischeSteuernummer oder EUID_LEI muss angegeben werden.</xs:documentation>
-      </xs:annotation>
-    </xs:assert>
+    <!-- Das Assert wurde für 10 entfernt... -->
+
   </xs:complexType>
 
   <!-- Komplexer Typ für natürliche Personen -->

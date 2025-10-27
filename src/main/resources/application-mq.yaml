@@ -1,0 +1,8 @@
+spring.application.name: hello-liberty
+
+ibm.mq:
+  queueManager: QM1
+  channel: DEV.APP.SVRCONN
+  connName: localhost(1414)
+  user: app
+  password: passapp

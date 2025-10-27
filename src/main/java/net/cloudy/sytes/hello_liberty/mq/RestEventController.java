@@ -1,16 +1,17 @@
-package net.cloudy.sytes.hello_liberty;
+package net.cloudy.sytes.hello_liberty.mq;
 
-import org.springframework.jms.annotation.EnableJms;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@EnableJms
+@Profile("mq")
 @RestController
-public class EmployeeMDP {
+public class RestEventController {
 
   MessageSender sender;
 
-  EmployeeMDP(MessageSender sender) {
+  RestEventController(@Autowired MessageSender sender) {
     this.sender = sender;
   }
 

@@ -1,4 +1,4 @@
-package net.cloudy.sytes.hello_liberty.schema;
+package net.cloudy.sytes.hello_liberty.schema.validator;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -14,19 +14,19 @@ import org.xml.sax.SAXException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class XmlValidator {
+public class XmlValidator10 {
 
-  XmlValidator() {
+  XmlValidator10() {
 
   }
 
-  private static final String SCHEMA_LOCATION = "/xsd/schema.xsd"; // Dein XSD-Schema-Dateipfad
+  private static final String SCHEMA_LOCATION = "/xsd/schema10.xsd"; // Dein XSD-Schema-Dateipfad
 
   public static void validate(String xmlContent) throws SAXException, IOException {
     // XSD-Schema laden
     SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
     log.info("Factory Created");
-    Schema schema = factory.newSchema(new StreamSource(XmlValidator.class.getResourceAsStream(SCHEMA_LOCATION)));
+    Schema schema = factory.newSchema(new StreamSource(XmlValidator10.class.getResourceAsStream(SCHEMA_LOCATION)));
     log.info("Schema Created");
     // Validator erstellen
     Validator validator = schema.newValidator();

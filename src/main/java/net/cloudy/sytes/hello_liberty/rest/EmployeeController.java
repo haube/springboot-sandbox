@@ -1,8 +1,12 @@
-package net.cloudy.sytes.hello_liberty;
+package net.cloudy.sytes.hello_liberty.rest;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
+import net.cloudy.sytes.hello_liberty.jpa.EmployeeRepo;
+import net.cloudy.sytes.hello_liberty.jpa.model.Employee;
+import net.cloudy.sytes.hello_liberty.mq.error.EmployeeNotFoundException;
+
+@Profile("mq")
 @RestController
-class EmployeeController {
+public class EmployeeController {
 
    private final EmployeeRepo repository;
    private final EmployeeModelAssembler assembler;
@@ -30,7 +38,7 @@ class EmployeeController {
    // Aggregate root
    // tag::get-aggregate-root[]
    @GetMapping("/employees")
-   CollectionModel<EntityModel<Employee>> all() {
+   public CollectionModel<EntityModel<Employee>> all() {
       List<EntityModel<Employee>> employees = repository.findAll().stream() //
             .map(assembler::toModel) //
             .collect(Collectors.toList());
@@ -47,7 +55,7 @@ class EmployeeController {
    // Single item
 
    @GetMapping("/employees/{id}")
-   EntityModel<Employee> one(@PathVariable Long id) {
+   public EntityModel<Employee> one(@PathVariable Long id) {
 
       Employee employee = repository.findById(id) //
             .orElseThrow(() -> new EmployeeNotFoundException(id));

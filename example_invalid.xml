@@ -14,13 +14,11 @@
       <Bundesland>Beispielbundesland</Bundesland>
     </Adresse>
     <IDMerkmale>
-      <!-- <Steuernummer>123456789</Steuernummer>
-      <AuslaendischeSteuernummer>DE987654321</AuslaendischeSteuernummer>
-      <EUID_LEI>9876543210</EUID_LEI>
-      -->
+      <!-- Kein ID Merkmal !!! -->
     </IDMerkmale>
     <Status>Inland</Status>
-  </NatuerlichePerson>! <JuristischePerson>
+  </NatuerlichePerson>
+  <JuristischePerson>
     <Firmenname>Beispiel GmbH</Firmenname>
     <Rechtsform>GmbH</Rechtsform>
     <Gründungsdatum>2010-05-15</Gründungsdatum>

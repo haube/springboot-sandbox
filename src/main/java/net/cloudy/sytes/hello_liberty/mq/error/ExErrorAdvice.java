@@ -1,4 +1,4 @@
-package net.cloudy.sytes.hello_liberty;
+package net.cloudy.sytes.hello_liberty.mq.error;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,0 +1,8 @@
+package net.cloudy.sytes.hello_liberty.mq.error;
+
+public class EmployeeNotFoundException extends RuntimeException {
+
+  public EmployeeNotFoundException(Long id) {
+    super("Could not find employee " + id);
+  }
+}
