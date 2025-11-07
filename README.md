@@ -94,7 +94,7 @@ XML ist ungültig:
 				Line number: 1, Column number: 924. cvc-complex-type.2.4.b: The content of element 'Adresse' is not complete. One of '{"http://www.example.com/namespace":Bundesland}' is expected.]
 ```
 
-### Der validate10 Endpunkt prüft die XML gegen resources/xsd/schema11.xsd
+### Der validate11 Endpunkt prüft die XML gegen resources/xsd/schema11.xsd
 
 `curl -X POST -H "Content-Type: application/xml" -d @example_invalid.xml http://localhost:8080/validate11`
 
@@ -105,6 +105,14 @@ XML ist ungültig:
 `curl -X POST -H "Content-Type: application/xml" -d @example_invalid.xml http://localhost:8080/validate10`
 
 `curl -X POST -H "Content-Type: application/xml" -d @example_valid.xml http://localhost:8080/validate10`
+
+## JAXB - Klassen Generierung basierend XML Schema 1.1
+
+JAXB unterstützt keine XML 1.1 feature die hier interessant sind wie xs:assert. Daher wird beim Maven Build die schema11.xsd genommen und mit einem Ant Run Task eine Kopie schema_clean.xsd erzeugt. Hierzu gibt es das Unterprojekt "[remove-asserts](remove-assert/README.MD)". Hier können Anpassungen vorgenommen werden um das Schema kompatibel für JAXB zu machen.
+
+### remove-asserts
+
+Das Projket muss mit mvn clean install in das lokale Repo instlaliert werden, damit es beim Build bereitsteht. Siehe: Build Plugin - <id>remove-asserts</id>.
 
 # Für IBM MQ:
 

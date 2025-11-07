@@ -135,12 +135,51 @@
 			<artifactId>xml-apis</artifactId>
 			<version>1.4.02</version> <!-- oder eine neuere Version -->
 		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>remove-asserts</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<java jar="${settings.localRepository}/net/cloudy/remove-assert/1.0.0/remove-assert-1.0.0.jar" fork="true">
+									<arg value="${project.basedir}/src/main/resources/xsd/schema11.xsd" />
+									<arg value="${project.build.directory}/generated-xsd/schema_clean.xsd" />
+								</java>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.jvnet.jaxb</groupId>
+				<artifactId>jaxb-maven-plugin</artifactId>
+				<version>4.0.8</version>
+				<configuration>
+					<schemaDirectory>${project.build.directory}/generated-xsd</schemaDirectory>
+					<schemaIncludes>
+						<include>schema_clean.xsd</include>
+					</schemaIncludes>
+					<generatePackage>net.cloudy.sytes.generated</generatePackage>
+					<generateDirectory>${project.build.directory}/generated-sources/jaxb</generateDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
