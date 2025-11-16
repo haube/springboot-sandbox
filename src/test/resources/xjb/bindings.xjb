@@ -1,0 +1,17 @@
+<jaxb:bindings version="3.0"
+    xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <jaxb:bindings schemaLocation="../../../../target/generated-xsd/schema_clean.xsd">
+    <jaxb:globalBindings>
+        <jaxb:javaType name="java.time.LocalDateTime"
+                       xmlType="xs:dateTime"
+                       parseMethod="net.cloudy.sytes.hello_liberty.schema.util.LocalDateTimeAdapter.parse"
+                       printMethod="net.cloudy.sytes.hello_liberty.schema.util.LocalDateTimeAdapter.print"/>
+        <jaxb:javaType name="java.time.LocalDate"
+                       xmlType="xs:date"
+                       parseMethod="net.cloudy.sytes.hello_liberty.schema.util.LocalDateAdapter.parse"
+                       printMethod="net.cloudy.sytes.hello_liberty.schema.util.LocalDateAdapter.print"/>
+    </jaxb:globalBindings>
+    </jaxb:bindings>
+</jaxb:bindings>

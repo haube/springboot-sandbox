@@ -121,20 +121,11 @@
 			<version>1.2.1</version> <!-- oder eine neuere Version -->
 		</dependency>
 		<dependency>
-			<groupId>com.ibm.icu</groupId>
-			<artifactId>icu4j</artifactId>
-			<version>4.2</version> <!-- oder eine neuere Version -->
-		</dependency>
-		<dependency>
 			<groupId>edu.princeton.cup</groupId>
 			<artifactId>java-cup</artifactId>
 			<version>10k</version> <!-- oder eine neuere Version -->
 		</dependency>
-		<dependency>
-			<groupId>xml-apis</groupId>
-			<artifactId>xml-apis</artifactId>
-			<version>1.4.02</version> <!-- oder eine neuere Version -->
-		</dependency>
+
 
 	</dependencies>
 	<build>
@@ -172,6 +163,11 @@
 					</schemaIncludes>
 					<generatePackage>net.cloudy.sytes.generated</generatePackage>
 					<generateDirectory>${project.build.directory}/generated-sources/jaxb</generateDirectory>
+					<!-- Hier sagst du dem Plugin, wo die Binding-Datei liegt -->
+					<bindingDirectory>${project.basedir}/src/test/resources/xjb</bindingDirectory>
+					<bindingIncludes>
+						<include>bindings.xjb</include>
+					</bindingIncludes>
 				</configuration>
 				<executions>
 					<execution>
