@@ -69,11 +69,14 @@
 
   <!-- Definition des Wurzelelements, das entweder eine natürliche oder juristische Person enthalten
   kann -->
+  <!-- Wurzelelement: Liste von Personen (natürlich oder juristisch) -->
   <xs:element name="Personen">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="NatuerlichePerson" type="NatuerlichePerson" minOccurs="0" />
-        <xs:element name="JuristischePerson" type="JuristischePerson" minOccurs="0" />
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="NatuerlichePerson" type="NatuerlichePerson" />
+          <xs:element name="JuristischePerson" type="JuristischePerson" />
+        </xs:choice>
       </xs:sequence>
     </xs:complexType>
   </xs:element>

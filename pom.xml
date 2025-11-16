@@ -126,7 +126,12 @@
 			<version>10k</version> <!-- oder eine neuere Version -->
 		</dependency>
 
-
+		<dependency>
+			<groupId>net.datafaker</groupId>
+			<artifactId>datafaker</artifactId>
+			<version>2.5.3</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
