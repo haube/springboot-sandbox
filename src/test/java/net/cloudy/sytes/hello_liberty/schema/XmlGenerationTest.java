@@ -61,7 +61,9 @@ class XmlGenerationTest {
     return Stream.of(
         Arguments.of("default.xml", TestDataFactory.createDefault()),
         Arguments.of("birthdate_2000.xml", TestDataFactory.createWithDate(LocalDate.of(2000, 1, 1))),
-        Arguments.of("over_9000.xml", TestDataFactory.createMany(250000)));
+        Arguments.of("10000.xml", TestDataFactory.createMany(10000)),
+        Arguments.of("50000.xml", TestDataFactory.createMany(50000)),
+        Arguments.of("250000.xml", TestDataFactory.createMany(250000)));
     // Arguments.of("empty.xml", TestDataFactory.createEmpty()));
   }
 }

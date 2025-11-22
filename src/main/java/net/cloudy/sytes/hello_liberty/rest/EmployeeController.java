@@ -39,8 +39,8 @@ public class EmployeeController {
    // tag::get-aggregate-root[]
    @GetMapping("/employees")
    public CollectionModel<EntityModel<Employee>> all() {
-      List<EntityModel<Employee>> employees = repository.findAll().stream() //
-            .map(assembler::toModel) //
+      List<EntityModel<Employee>> employees = repository.findAll().stream()
+            .map(assembler::toModel)
             .collect(Collectors.toList());
 
       return CollectionModel.of(employees, linkTo(methodOn(EmployeeController.class).all()).withSelfRel());
@@ -57,7 +57,7 @@ public class EmployeeController {
    @GetMapping("/employees/{id}")
    public EntityModel<Employee> one(@PathVariable Long id) {
 
-      Employee employee = repository.findById(id) //
+      Employee employee = repository.findById(id)
             .orElseThrow(() -> new EmployeeNotFoundException(id));
 
       return assembler.toModel(employee);

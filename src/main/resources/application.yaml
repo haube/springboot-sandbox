@@ -1,1 +1,21 @@
 spring.application.name: hello-liberty
+management.endpoints.web.exposure.include: "*"
+management.endpoint.health.show-details: "always"
+management.health.jms.enabled: false
+management:
+  endpoint:
+    heapdump:
+      access: unrestricted
+    threaddump:
+      access: unrestricted
+    env:
+      access: unrestricted
+    configprops:
+      access: unrestricted
+    metrics:
+      access: unrestricted
+    
+spring.boot.admin.client.url: "http://localhost:9999"
+spring.boot.admin.client.instance.service-base-url: "http://localhost:8080"
+
+server.port: 8080

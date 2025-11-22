@@ -79,13 +79,13 @@ printf 'done.\n'
 
 printf 'Installing JARs to local m2 repository\n'
 
-mvn install:install-file \
-    -Dfile="$DOWNLOAD_DIR/xml-apis.jar" \
-    -DgroupId=xml-apis \
-    -DartifactId=xml-apis \
-    -Dversion="$XMLAPIS_VERSION" \
-    -Dpackaging=jar \
-    -DgeneratePom=true
+#mvn install:install-file \
+#    -Dfile="$DOWNLOAD_DIR/xml-apis.jar" \
+#    -DgroupId=xml-apis \
+#    -DartifactId=xml-apis \
+#    -Dversion="$XMLAPIS_VERSION" \
+#    -Dpackaging=jar \
+#    -DgeneratePom=true
 
 mvn install:install-file \
     -Dfile="$DOWNLOAD_DIR/xercesImpl.jar" \
@@ -104,21 +104,21 @@ mvn install:install-file \
     -Dpackaging=jar \
     -DgeneratePom=true
 
-mvn install:install-file \
-    -Dfile="$DOWNLOAD_DIR/cupv$JAVACUP_VERSION-runtime.jar" \
-    -DgroupId=edu.princeton.cup \
-    -DartifactId=java-cup \
-    -Dversion="$JAVACUP_VERSION" \
-    -Dpackaging=jar \
-    -DgeneratePom=true
+#mvn install:install-file \
+#    -Dfile="$DOWNLOAD_DIR/cupv$JAVACUP_VERSION-runtime.jar" \
+#    -DgroupId=edu.princeton.cup \
+#    -DartifactId=java-cup \
+#    -Dversion="$JAVACUP_VERSION" \
+#    -Dpackaging=jar \
+#    -DgeneratePom=true
 
-mvn install:install-file \
-    -Dfile="$DOWNLOAD_DIR/icu4j.jar" \
-    -DgroupId=com.ibm.icu \
-    -DartifactId=icu4j \
-    -Dversion="$ICU4J_VERSION" \
-    -Dpackaging=jar \
-    -DgeneratePom=true
+#mvn install:install-file \
+#    -Dfile="$DOWNLOAD_DIR/icu4j.jar" \
+#    -DgroupId=com.ibm.icu \
+#    -DartifactId=icu4j \
+#    -Dversion="$ICU4J_VERSION" \
+#    -Dpackaging=jar \
+#    -DgeneratePom=true
 
 printf 'Deleting temporary directory... '
 rm -rf "$DOWNLOAD_DIR"
