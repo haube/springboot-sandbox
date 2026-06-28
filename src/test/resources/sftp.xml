@@ -1,0 +1,18 @@
+<PersonenRequest>
+    <person>
+        <Vorname>Max</Vorname>
+        <Nachname>Mustermann</Nachname>
+        <Geburtsdatum>1990-01-01</Geburtsdatum>
+        <Strasse>Musterstraße 1</Strasse>
+        <PLZ>12345</PLZ>
+        <Ort>Musterstadt</Ort>
+    </person>
+    <person>
+        <Vorname>Erika</Vorname>
+        <Nachname>Mustermann</Nachname>
+        <Geburtsdatum>1985-05-20</Geburtsdatum>
+        <Strasse>Beispielweg 2</Strasse>
+        <PLZ>54321</PLZ>
+        <Ort>Beispielstadt</Ort>
+    </person>
+</PersonenRequest>

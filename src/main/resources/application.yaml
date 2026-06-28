@@ -1,4 +1,8 @@
 spring.application.name: hello-liberty
+spring:
+  profiles:
+    active: "sftp"
+
 management.endpoints.web.exposure.include: "*"
 management.endpoint.health.show-details: "always"
 management.health.jms.enabled: false
@@ -14,8 +18,9 @@ management:
       access: unrestricted
     metrics:
       access: unrestricted
-    
+
 spring.boot.admin.client.url: "http://localhost:9999"
 spring.boot.admin.client.instance.service-base-url: "http://localhost:8080"
 
 server.port: 8080
+logging.level[net.cloudy.sytes.hello_liberty]: TRACE

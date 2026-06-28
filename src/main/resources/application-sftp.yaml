@@ -1,0 +1,7 @@
+sftp:
+  port: 2222
+  username: technical
+  password: secret
+  root: /home/michi/data/libertyapp
+  hostKey: /home/michi/data/ssh_host_ed25519_key
+  authorizedKeys: /home/michi/data/authorized_keys
